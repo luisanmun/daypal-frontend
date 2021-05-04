@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MealsAdminService } from '../_services/meals-admin.service';
 import { Meal } from 'src/app/models/meal';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -12,13 +13,12 @@ export class MealsAdminComponent implements OnInit {
 
   meals?: Meal[];
 
-  constructor(private mealsAdminService: MealsAdminService) {
-  }
+  //constructor(private mealsAdminService: MealsAdminService) {}
 
-  // constructor(
-  //   private mealsAdminService: MealsAdminService,
-  //   private route: ActivatedRoute,
-  //   private router: Router) { }
+   constructor(
+     private mealsAdminService: MealsAdminService,
+     private route: ActivatedRoute,
+     private router: Router) { }
 
   ngOnInit(): void {
 
@@ -37,17 +37,17 @@ export class MealsAdminComponent implements OnInit {
 
   }
 
-  // deleteMeal(id : any): void {
-  //   this.mealsAdminService.deleteMeal(id)
-  //     .subscribe(
-  //       response => {
-  //         console.log(response);
-  //         this.router.navigate(['/meals']);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  //     }
+   deleteMeal(id : any): void {
+     this.mealsAdminService.deleteMeal(id)
+       .subscribe(
+         response => {
+           console.log(response);
+           this.router.navigate(['/meals']);
+         },
+         error => {
+           console.log(error);
+         });
+       }
 
 
 }

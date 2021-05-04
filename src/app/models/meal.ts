@@ -3,6 +3,7 @@ export class Meal {
     description?: string;
     calories?: number;
     category?: string;
+    id?: number;
 
     // title: string | undefined;
     // description: string | undefined;

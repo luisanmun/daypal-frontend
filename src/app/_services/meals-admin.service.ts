@@ -13,17 +13,12 @@ export class MealsAdminService {
 
   constructor(private http: HttpClient) { }
 
-  //traer los meals desde spring a angular
-  // public getMeals(): Observable<Meal[]> {
-  //   return this.http.get<Meal[]>(API_URL + '/meals/all');
-  // }
-
   getAll(): Observable<Meal[]> {
     return this.http.get<Meal[]>(API_URL + '/meals');
   }
 
-  deleteMeal(id: any): Observable<any> {
-    return this.http.delete(API_URL + '/meals/delete/${id}');
+  deleteMeal(id: number): Observable<any> {
+    return this.http.delete(API_URL + '/meals/' + id);
   }
 
 }
