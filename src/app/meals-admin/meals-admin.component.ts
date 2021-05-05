@@ -13,8 +13,6 @@ export class MealsAdminComponent implements OnInit {
 
   meals?: Meal[];
 
-  //constructor(private mealsAdminService: MealsAdminService) {}
-
    constructor(
      private mealsAdminService: MealsAdminService,
      private route: ActivatedRoute,
@@ -42,7 +40,7 @@ export class MealsAdminComponent implements OnInit {
        .subscribe(
          response => {
            console.log(response);
-           this.router.navigate(['/meals']);
+           window.location.reload();
          },
          error => {
            console.log(error);

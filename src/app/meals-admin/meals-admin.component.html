@@ -11,7 +11,6 @@
           <th>Descripción</th>
           <th>Calorias</th>
           <th>Categoria</th>
-          <th>id</th>
         </tr>
       </thead>
       <tbody>
@@ -20,9 +19,7 @@
               <td>{{meal.description}}</td>
               <td>{{meal.calories}}</td>
               <td>{{meal.category}}</td>
-              <td>{{meal.id}}</td>
-              <!-- <button mat-icon-button color="primary" (click)="deleteMeal(meal.id)" title="Eliminar comida"><mat-icon>Eliminar</mat-icon></button> -->
-              <button type="button" class="btn btn-danger" (click)="deleteMeal(meal.id)" >Delete</button>
+              <button type="button" class="btn btn-danger" (click)="deleteMeal(meal.id)" >Eliminar</button>
           </tr>
       </tbody>
   </table>

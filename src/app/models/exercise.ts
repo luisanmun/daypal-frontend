@@ -1,7 +1,7 @@
-export class Meal {
+export class Exercise {
     title?: string;
     description?: string;
     calories?: number;
-    category?: string;
+    loseWeight?: boolean;
     id?: number;
 }
