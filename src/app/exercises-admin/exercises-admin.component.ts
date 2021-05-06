@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExercisesAdminService } from '../_services/exercises-admin.service';
+import { ExercisesService } from '../_services/exercises.service';
 import { Exercise } from 'src/app/models/exercise';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
@@ -14,13 +14,13 @@ export class ExercisesAdminComponent implements OnInit {
   exercises?: Exercise[];
 
    constructor(
-     private exercisesAdminService: ExercisesAdminService,
+     private exercisesService: ExercisesService,
      private route: ActivatedRoute,
      private router: Router) { }
 
   ngOnInit(): void {
 
-    this.exercisesAdminService.getAll()
+    this.exercisesService.getAll()
       .subscribe(
         data => {
           this.exercises = data;
@@ -33,7 +33,7 @@ export class ExercisesAdminComponent implements OnInit {
   }
 
   deleteExercise(id : any): void {
-     this.exercisesAdminService.deleteExercise(id)
+     this.exercisesService.deleteExercise(id)
        .subscribe(
          response => {
            console.log(response);

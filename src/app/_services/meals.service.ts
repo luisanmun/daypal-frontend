@@ -8,8 +8,7 @@ const API_URL = 'http://localhost:8080';
 @Injectable({
   providedIn: 'root'
 })
-export class MealsAdminService {
-  //cambio de nomre ya que este servicio es para las meals pero vale para todos los roles
+export class MealsService {
 
   constructor(private http: HttpClient) { }
 

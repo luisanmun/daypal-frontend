@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MealsAdminService } from '../_services/meals-admin.service';
+import { MealsService } from '../_services/meals.service';
 import { Meal } from 'src/app/models/meal';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -14,14 +14,14 @@ export class MealsAdminComponent implements OnInit {
   meals?: Meal[];
 
    constructor(
-     private mealsAdminService: MealsAdminService,
+     private mealsService: MealsService,
      private route: ActivatedRoute,
      private router: Router) { }
 
   ngOnInit(): void {
 
 
-    this.mealsAdminService.getAll()
+    this.mealsService.getAll()
       .subscribe(
         data => {
           this.meals = data;
@@ -36,7 +36,7 @@ export class MealsAdminComponent implements OnInit {
   }
 
    deleteMeal(id : any): void {
-     this.mealsAdminService.deleteMeal(id)
+     this.mealsService.deleteMeal(id)
        .subscribe(
          response => {
            console.log(response);
