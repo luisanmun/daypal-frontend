@@ -1,0 +1,100 @@
+<div class="col-md-12">
+    <div class="card card-container">
+      <!-- <img
+        id="profile-img"
+        src="../../assets/up-arrow.png"
+        class="profile-img-card"
+      /> -->
+      <form
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="title">Título</label>
+          <input
+            type="text"
+            class="form-control"
+            name="title"
+            [(ngModel)]="form.title"
+            required
+            minlength="3"
+            maxlength="20"
+            #title="ngModel"
+          />
+          <div class="alert-danger" *ngIf="title.errors && f.submitted">
+            <div *ngIf="title.errors.required">Debe introducir un título</div>
+            <div *ngIf="title.errors.minlength">El título debe tener al menos 3 caracteres</div>
+            <div *ngIf="title.errors.maxlength">El título debe tener como máximo 20 caracteres</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Descripción</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            [(ngModel)]="form.description"
+            required
+            minlength="3"
+            maxlength="500"
+            #description="ngModel"
+          />
+          <div class="alert-danger" *ngIf="description.errors && f.submitted">
+            <div *ngIf="description.errors.required">Debe introducir una descripción</div>
+            <div *ngIf="description.errors.minlength">La descripción debe tener al menos 3 caracteres</div>
+            <div *ngIf="description.errors.maxlength">La descripción debe tener como máximo 500 caracteres</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="calories">Calorías</label>
+          <input
+            type="number"
+            class="form-control"
+            name="calories"
+            [(ngModel)]="form.calories"
+            required
+            min=1
+            max=5000
+            #calories="ngModel"
+          />
+          <div class="alert-danger" *ngIf="calories.errors && f.submitted">
+            <div *ngIf="calories.errors.required">Debe introducir las calorias que contiene la comida</div>
+            <!-- <div *ngIf="calories.errors.pattern">Debe introducir un valor numérico</div> -->
+            <div *ngIf="!calories.errors.valid">Las calorías deben ser al menos 1</div>
+            <div *ngIf="calories.errors.max">Las calorías deben ser como máximo 5000</div>
+            <!-- <div *ngIf="calories.valid">asdf</div> -->
+            <!-- <span class="error" ng-show="form.calories.$error.number">Not valid number!</span> -->
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="category">Tipo de comida</label>       
+        <select  class='form-control' [(ngModel)]="form.category" name="category" required #category="ngModel">
+            <option value="">Escoje tipo de comida...</option>
+            <option value="BREAKFAST">Desayuno</option>
+            <option value="LUNCH">Almuerzo</option>
+            <option value="SNACK">Merienda</option>
+            <option value="DINNER">Cena</option>
+        </select>
+        <div class="alert-danger" *ngIf="category.errors && f.submitted">
+            <div *ngIf="category.errors.required">Debe introducir la categoría de la comida</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Guardar</button>
+        </div>
+  
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Fallo en la introducción de la comida<br />{{ errorMessage }}
+        </div>
+      </form>
+  
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Comida correctamente introducida
+        <button type="button" class="btn btn-danger" (click)="volver()">Volver</button>
+      </div>
+    </div>
+  </div>
+  

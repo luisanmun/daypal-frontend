@@ -16,6 +16,8 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { MealsAdminComponent } from './meals-admin/meals-admin.component';
 import { ExercisesAdminComponent } from './exercises-admin/exercises-admin.component';
+import { NewExerciseModComponent } from './new-exercise-mod/new-exercise-mod.component';
+import { NewMealModComponent } from './new-meal-mod/new-meal-mod.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ExercisesAdminComponent } from './exercises-admin/exercises-admin.compo
     BoardModeratorComponent,
     BoardUserComponent,
     MealsAdminComponent,
-    ExercisesAdminComponent
+    ExercisesAdminComponent,
+    NewExerciseModComponent,
+    NewMealModComponent
   ],
   imports: [
     BrowserModule,

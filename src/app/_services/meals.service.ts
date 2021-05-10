@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Meal } from 'src/app/models/meal';
 
 const API_URL = 'http://localhost:8080';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -20,4 +24,7 @@ export class MealsService {
     return this.http.delete(API_URL + '/meals/' + id);
   }
 
+  register(title: string, description: string, calories: number, category: string): Observable<any> {
+    return this.http.post(API_URL + '/meals', {title,description,calories,category}, httpOptions);
+  }
 }

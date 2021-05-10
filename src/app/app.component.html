@@ -17,21 +17,19 @@
       <li class="nav-item" *ngIf="showAdminBoard">  <!-- el if hbra que cambiarlo en el futuo si elimino esa funcion -->
         <a href="/exercises" class="nav-link" routerLink="exercises">Ejercicios</a>
       </li>
-      <li class="nav-item" *ngIf="showAdminBoard">
+      <!-- <li class="nav-item" *ngIf="showAdminBoard">
         <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
-      </li>
+      </li> -->
       <!-- links para entrenador -->
-      <li class="nav-item" *ngIf="showModeratorBoard">
+      <!-- <li class="nav-item" *ngIf="showModeratorBoard">
         <a href="/mod" class="nav-link" routerLink="mod">Introducir Comida</a>
+      </li> -->
+      <li class="nav-item" *ngIf="showModeratorBoard">
+        <a href="/meals/new" class="nav-link" routerLink="meals/new">Introducir Comida</a>
       </li>
       <li class="nav-item" *ngIf="showModeratorBoard">
-        <a href="/mod" class="nav-link" routerLink="mod">Introducir Ejercicio</a>
+        <a href="/exercises/new" class="nav-link" routerLink="exercises/new">Introducir Ejercicio</a>
       </li>
-      <li class="nav-item" *ngIf="showModeratorBoard">
-        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
-      </li>
-      
-      
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">

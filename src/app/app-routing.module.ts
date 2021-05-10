@@ -10,6 +10,8 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { MealsAdminComponent } from './meals-admin/meals-admin.component';
 import { ExercisesAdminComponent } from './exercises-admin/exercises-admin.component';
+import { NewMealModComponent } from './new-meal-mod/new-meal-mod.component';
+import { NewExerciseModComponent } from './new-exercise-mod/new-exercise-mod.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent },
   { path: 'meals', component: MealsAdminComponent },
   { path: 'exercises', component: ExercisesAdminComponent },
+  { path: 'meals/new', component: NewMealModComponent },
+  { path: 'exercises/new', component: NewExerciseModComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
