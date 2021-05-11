@@ -71,11 +71,47 @@
         </div>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary btn-block">Sign Up</button>
+        <label for="height">Altura</label>
+        <input
+          type="number"
+          class="form-control"
+          name="height"
+          [(ngModel)]="form.height"
+          required
+          min=150
+          max=220
+          #height="ngModel"
+        />
+        <div class="alert-danger" *ngIf="height.errors && f.submitted">
+          <div *ngIf="height.errors.required">Por favor introduzca su altura</div>
+          <div *ngIf="height.errors.min">La altura debe ser al menos 150 cms</div>
+          <div *ngIf="height.errors.max">La altura debe ser como máximo 220 cms</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="weight">Peso</label>
+        <input
+          type="number"
+          class="form-control"
+          name="weight"
+          [(ngModel)]="form.weight"
+          required
+          min=40
+          max=300
+          #weight="ngModel"
+        />
+        <div class="alert-danger" *ngIf="weight.errors && f.submitted">
+          <div *ngIf="weight.errors.required">Por favor introduzca su peso</div>
+          <div *ngIf="weight.errors.min">El peso debe ser al menos 40 kgs</div>
+          <div *ngIf="weight.errors.max">El peso debe ser como máximo 300 kgs</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Registro</button>
       </div>
 
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-        Signup failed!<br />{{ errorMessage }}
+        Falló el registro!<br />{{ errorMessage }}
       </div>
     </form>
 
