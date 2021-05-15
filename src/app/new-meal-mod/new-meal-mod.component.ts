@@ -46,4 +46,12 @@ export class NewMealModComponent implements OnInit {
   volver(): void {
     window.location.reload();
   }
+
+  checkMinCorrecto(n: number): any {
+    return n>1
+  }
+
+  checkMaxCorrecto(n: number): any {
+    return n<5000
+  }
 }
