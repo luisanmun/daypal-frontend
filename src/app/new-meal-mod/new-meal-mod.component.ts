@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MealsService } from '../_services/meals.service';
-import { Validators, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-new-meal-mod',
@@ -13,14 +12,11 @@ export class NewMealModComponent implements OnInit {
     title: null,
     description: null,
     calories: null,
-    // calories:  [null, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(1), Validators.max(5000)]],
     category: null
   };
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
-
-  // categories:string[]=["BREAKFAST", "LUNCH", "SNACK", "DINNER"];
 
   constructor(private mealsService: MealsService) { }
 
@@ -48,10 +44,10 @@ export class NewMealModComponent implements OnInit {
   }
 
   checkMinCorrecto(n: number): any {
-    return n>1
+    return n>=1
   }
 
   checkMaxCorrecto(n: number): any {
-    return n<5000
+    return n<=5000
   }
 }

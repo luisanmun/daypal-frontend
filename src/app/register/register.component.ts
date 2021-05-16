@@ -39,4 +39,20 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
+
+  checkMinCorrectoAltura(n: number): any {
+    return n>=150
+  }
+
+  checkMaxCorrectoAltura(n: number): any {
+    return n<=220
+  }
+
+  checkMinCorrectoPeso(n: number): any {
+    return n>=40
+  }
+
+  checkMaxCorrectoPeso(n: number): any {
+    return n<=300
+  }
 }

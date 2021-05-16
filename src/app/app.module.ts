@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatRadioModule } from '@angular/material/radio';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -18,6 +20,7 @@ import { MealsAdminComponent } from './meals-admin/meals-admin.component';
 import { ExercisesAdminComponent } from './exercises-admin/exercises-admin.component';
 import { NewExerciseModComponent } from './new-exercise-mod/new-exercise-mod.component';
 import { NewMealModComponent } from './new-meal-mod/new-meal-mod.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { NewMealModComponent } from './new-meal-mod/new-meal-mod.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatRadioModule,
+    BrowserAnimationsModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

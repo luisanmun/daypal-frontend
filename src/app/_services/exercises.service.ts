@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Exercise } from 'src/app/models/exercise';
 
 const API_URL = 'http://localhost:8080';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,4 +25,7 @@ export class ExercisesService {
     return this.http.delete(API_URL + '/exercises/' + id);
   }
 
+  register(title: string, description: string, loseWeight: boolean): Observable<any> {
+    return this.http.post(API_URL + '/exercises', {title,description,loseWeight}, httpOptions);
+  }
 }

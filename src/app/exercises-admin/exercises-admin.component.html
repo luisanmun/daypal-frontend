@@ -9,8 +9,7 @@
             <tr>
             <th>Título</th>
             <th>Descripción</th>
-            <th>Calorias</th>
-            <th>¿Valido para perdida de peso?</th>
+            <th>Tipo de ejercicio</th>
             <th>Eliminar ejercicio</th>
           </tr>
         </thead>
@@ -18,8 +17,9 @@
             <tr *ngFor="let exercise of exercises">
                 <td>{{exercise.title}}</td>
                 <td>{{exercise.description}}</td>
-                <td>{{exercise.calories}}</td>
-                <td>{{exercise.loseWeight}}</td>
+                <!-- <td>{{exercise.loseWeight}}</td> -->
+                <td  *ngIf="exercise.loseWeight == true"> Indicado para perder peso </td>
+                <td  *ngIf="exercise.loseWeight == false"> Indicado para ganar masa muscular </td>
                 <button type="button" class="btn btn-danger" (click)="deleteExercise(exercise.id)" >Eliminar</button>
             </tr>
         </tbody>

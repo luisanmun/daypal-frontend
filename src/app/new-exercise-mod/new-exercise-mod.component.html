@@ -1,1 +1,80 @@
-<p>new-exercise-mod works!</p>
+<div class="col-md-12">
+    <div class="card card-container">
+      <!-- <img
+        id="profile-img"
+        src="../../assets/up-arrow.png"
+        class="profile-img-card"
+      /> -->
+      <form
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="title">Título</label>
+          <input
+            type="text"
+            class="form-control"
+            name="title"
+            [(ngModel)]="form.title"
+            required
+            minlength="3"
+            maxlength="20"
+            #title="ngModel"
+          />
+          <div class="alert-danger" *ngIf="title.errors && f.submitted">
+            <div *ngIf="title.errors.required">Debe introducir un título</div>
+            <div *ngIf="title.errors.minlength">El título debe tener al menos 3 caracteres</div>
+            <div *ngIf="title.errors.maxlength">El título debe tener como máximo 20 caracteres</div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Descripción</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            [(ngModel)]="form.description"
+            required
+            minlength="3"
+            maxlength="500"
+            #description="ngModel"
+          />
+          <div class="alert-danger" *ngIf="description.errors && f.submitted">
+            <div *ngIf="description.errors.required">Debe introducir una descripción</div>
+            <div *ngIf="description.errors.minlength">La descripción debe tener al menos 3 caracteres</div>
+            <div *ngIf="description.errors.maxlength">La descripción debe tener como máximo 500 caracteres</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label for="loseWeight">Tipo de ejercicio</label>       
+            <mat-radio-group name="opciones" [(ngModel)]="form.loseWeight"  name="loseWeight" required #loseWeight="ngModel">
+                <mat-radio-button value="true">Indicado para perder peso</mat-radio-button>
+                <mat-radio-button value="false">Indicado para ganar masa muscular</mat-radio-button>
+            </mat-radio-group>
+
+          <div class="alert-danger" *ngIf="loseWeight.errors && f.submitted">
+              <div *ngIf="loseWeight.errors.required">Debe indicar el objetivo del ejercicio</div>
+            </div>
+          </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Guardar</button>
+        </div>
+  
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Fallo en la introducción del ejercicio<br />{{ errorMessage }}
+        </div>
+      </form>
+  
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Ejercicio correctamente introducido
+        <button type="button" class="btn btn-danger" (click)="volver()">Volver</button>
+      </div>
+    </div>
+  </div>
+  
