@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_URL = 'http://localhost:4200/api/test/';
+const API_URL = 'http://localhost:8080';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +28,9 @@ export class UserService {
 
   getAdminBoard(): Observable<any> {
     return this.http.get(API_URL + 'admin', { responseType: 'text' });
+  }
+
+  patchWeight(weight: number, userId: number): Observable<any> {
+    return this.http.patch(API_URL + '/user/' + userId + '/weight', weight, httpOptions);
   }
 }

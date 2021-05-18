@@ -21,6 +21,7 @@ import { ExercisesAdminComponent } from './exercises-admin/exercises-admin.compo
 import { NewExerciseModComponent } from './new-exercise-mod/new-exercise-mod.component';
 import { NewMealModComponent } from './new-meal-mod/new-meal-mod.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PatchWeightUserComponent } from './patch-weight-user/patch-weight-user.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MealsAdminComponent,
     ExercisesAdminComponent,
     NewExerciseModComponent,
-    NewMealModComponent
+    NewMealModComponent,
+    PatchWeightUserComponent
   ],
   imports: [
     BrowserModule,

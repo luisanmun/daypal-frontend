@@ -1,0 +1,49 @@
+<div class="col-md-12">
+    <div class="card card-container">
+      <!-- <img
+        id="profile-img"
+        src="../../assets/up-arrow.png"
+        class="profile-img-card"
+      /> -->
+      <form
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="weight">Nuevo peso</label>
+          <input
+            type="number"
+            class="form-control"
+            name="weight"
+            [(ngModel)]="form.weight"
+            required
+            min=40
+            max=300
+            #weight="ngModel"
+          />
+          <div class="alert-danger" *ngIf="weight.errors && f.submitted">
+            <div *ngIf="weight.errors.required">Debe introducir su nuevo peso</div>
+          </div>
+          <div class="alert-danger" *ngIf="!checkMinCorrecto(form.weight) && f.submitted">El peso debe ser como mínimo 40 kgs</div>
+          <div class="alert-danger" *ngIf="!checkMaxCorrecto(form.weight) && f.submitted">El peso debe ser como máximo 300 kgs</div>
+        </div>
+        
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Guardar</button>
+        </div>
+  
+        <!-- <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Fallo en la introducción del peso<br />{{ errorMessage }}
+        </div> -->
+      </form>
+  
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Peso correctamente actualizado
+        <button type="button" class="btn btn-danger" (click)="volver()">Volver</button>
+      </div>
+    </div>
+  </div>
+  

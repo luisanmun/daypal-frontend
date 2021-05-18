@@ -12,6 +12,7 @@ import { MealsAdminComponent } from './meals-admin/meals-admin.component';
 import { ExercisesAdminComponent } from './exercises-admin/exercises-admin.component';
 import { NewMealModComponent } from './new-meal-mod/new-meal-mod.component';
 import { NewExerciseModComponent } from './new-exercise-mod/new-exercise-mod.component';
+import { PatchWeightUserComponent } from './patch-weight-user/patch-weight-user.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'exercises', component: ExercisesAdminComponent },
   { path: 'meals/new', component: NewMealModComponent },
   { path: 'exercises/new', component: NewExerciseModComponent },
+  { path: 'user/weight', component: PatchWeightUserComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
