@@ -33,4 +33,12 @@ export class UserService {
   patchWeight(weight: number, userId: number): Observable<any> {
     return this.http.patch(API_URL + '/user/' + userId + '/weight', weight, httpOptions);
   }
+
+  getWeight(userId: number): Observable<any> {
+    return this.http.get(API_URL + '/user/' + userId + '/weight', { responseType: 'text' });
+  }
+
+  getHeight(userId: number): Observable<any> {
+    return this.http.get(API_URL + '/user/' + userId + '/height', { responseType: 'text' });
+  }
 }
