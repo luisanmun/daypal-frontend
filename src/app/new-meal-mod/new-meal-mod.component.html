@@ -21,13 +21,13 @@
             [(ngModel)]="form.title"
             required
             minlength="3"
-            maxlength="20"
+            maxlength="40"
             #title="ngModel"
           />
           <div class="alert-danger" *ngIf="title.errors && f.submitted">
             <div *ngIf="title.errors.required">Debe introducir un título</div>
             <div *ngIf="title.errors.minlength">El título debe tener al menos 3 caracteres</div>
-            <div *ngIf="title.errors.maxlength">El título debe tener como máximo 20 caracteres</div>
+            <div *ngIf="title.errors.maxlength">El título debe tener como máximo 40 caracteres</div>
           </div>
         </div>
         <div class="form-group">

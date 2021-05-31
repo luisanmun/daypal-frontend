@@ -1,4 +1,4 @@
-export class Exercise {
+export interface Exercise {
     title?: string;
     description?: string;
     calories?: number;
