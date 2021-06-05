@@ -4,6 +4,13 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { Meal } from '../models/meal';
 import { Exercise } from '../models/exercise';
 
+const lastConfirmedBreakfast = 0;
+const lastConfirmedLunch = 0;
+const lastConfirmedSnack = 0;
+const lastConfirmedDinner = 0;
+const lastConfirmedExercise = 0;
+
+
 @Component({
   selector: 'app-today-user',
   templateUrl: './today-user.component.html',
@@ -16,27 +23,27 @@ export class TodayUserComponent implements OnInit {
   currentDate = new Date;
   hora = this.currentDate.getHours();
   min = this.currentDate.getMinutes();
-  dia =this.currentDate.getDay();
+  dia = this.currentDate.getDay();
 
   currentMeal !: Meal;
 
   currentExercise !: Exercise;
 
-  currentScore : any;
+  currentScore: any;
 
   constructor(private token: TokenStorageService, private userService: UserService) { }
 
   ngOnInit(): void {
-  
+
     this.currentUser = this.token.getUser();
-    this.userService.getMealNow(this.currentUser.id).subscribe((data)=>this.currentMeal = data);
-    this.userService.getExerciseNow(this.currentUser.id).subscribe((data)=>this.currentExercise = data);
-    this.userService.getScore(this.currentUser.id).subscribe((data)=>this.currentScore = data);    
+    this.userService.getMealNow(this.currentUser.id).subscribe((data) => this.currentMeal = data);
+    this.userService.getExerciseNow(this.currentUser.id).subscribe((data) => this.currentExercise = data);
+    this.userService.getScore(this.currentUser.id).subscribe((data) => this.currentScore = data);
   }
 
   nowBreakfast(): boolean {
     var res = false;
-    if(this.hora >= 10 && this.hora < 11){
+    if (this.hora >= 10 && this.hora < 11) {
       res = true;
     }
     return res;
@@ -44,7 +51,7 @@ export class TodayUserComponent implements OnInit {
 
   nowLunch(): boolean {
     var res = false;
-    if(this.hora >= 14 && this.hora < 15){
+    if (this.hora >= 14 && this.hora < 15) {
       res = true;
     }
     return res;
@@ -52,7 +59,7 @@ export class TodayUserComponent implements OnInit {
 
   nowSnack(): boolean {
     var res = false;
-    if(this.hora >= 18 && this.hora < 19){
+    if (this.hora >= 18 && this.hora < 19) {
       res = true;
     }
     return res;
@@ -60,7 +67,7 @@ export class TodayUserComponent implements OnInit {
 
   nowExercise(): boolean {
     var res = false;
-    if(this.hora >= 19 && this.hora < 20){
+    if (this.hora >= 19 && this.hora < 20) {
       res = true;
     }
     return res;
@@ -68,7 +75,7 @@ export class TodayUserComponent implements OnInit {
 
   nowFreeTime(): boolean {
     var res = false;
-    if(this.hora >= 20 && this.hora < 22){
+    if (this.hora >= 20 && this.hora < 22) {
       res = true;
     }
     return res;
@@ -76,7 +83,7 @@ export class TodayUserComponent implements OnInit {
 
   nowDinner(): boolean {
     var res = false;
-    if(this.hora >= 22 && this.hora < 23){
+    if (this.hora >= 22 && this.hora < 23) {
       res = true;
     }
     return res;
@@ -84,7 +91,7 @@ export class TodayUserComponent implements OnInit {
 
   nowBedTimeRoutine(): boolean {
     var res = false;
-    if((this.hora == 0 && this.min == 0) && (this.hora < 1)){
+    if ((this.hora == 0 && this.min == 0) && (this.hora < 1)) {
       res = true;
     }
     return res;
@@ -92,7 +99,7 @@ export class TodayUserComponent implements OnInit {
 
   nowSleep(): boolean {
     var res = false;
-    if(this.hora >= 1 && this.hora < 9){
+    if (this.hora >= 1 && this.hora < 9) {
       res = true;
     }
     return res;
@@ -100,7 +107,7 @@ export class TodayUserComponent implements OnInit {
 
   nowWork(): boolean {
     var res = false;
-    if((this.hora >= 9 && this.hora < 10) || (this.hora >= 11 && this.hora < 14) || (this.hora >= 15 && this.hora < 18)){
+    if ((this.hora >= 9 && this.hora < 10) || (this.hora >= 11 && this.hora < 14) || (this.hora >= 15 && this.hora < 18)) {
       res = true;
     }
     return res;
@@ -108,7 +115,7 @@ export class TodayUserComponent implements OnInit {
 
   nowFreeTimeWeekend(): boolean {
     var res = false;
-    if((this.hora >= 11 && this.hora < 14) || (this.hora >= 15 && this.hora < 18) || (this.hora >= 19 && this.hora < 22) || (this.hora >= 23 && this.hora < 2)){
+    if ((this.hora >= 11 && this.hora < 14) || (this.hora >= 15 && this.hora < 18) || (this.hora >= 19 && this.hora < 22) || (this.hora >= 23 && this.hora < 2)) {
       res = true;
     }
     return res;
@@ -116,7 +123,7 @@ export class TodayUserComponent implements OnInit {
 
   nowSleepWeekend(): boolean {
     var res = false;
-    if(this.hora >= 2 && this.hora < 10){
+    if (this.hora >= 2 && this.hora < 10) {
       res = true;
     }
     return res;
@@ -124,9 +131,123 @@ export class TodayUserComponent implements OnInit {
 
   isWeekend(): boolean {
     var res = false;
-    if(this.dia == 6 || this.dia == 0){
+    if (this.dia == 6 || this.dia == 0) {
       res = true;
     }
     return res;
   }
+
+  refreshMeal(): void {
+    this.userService.refreshMeal(this.currentUser.id)
+      .subscribe(
+        response => {
+          console.log(response);
+          window.location.reload();
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  refreshExercise(): void {
+    this.userService.refreshExercise(this.currentUser.id)
+      .subscribe(
+        response => {
+          console.log(response);
+          window.location.reload();
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  mealsCounterUp(): void {
+    this.userService.mealsCounterUp(this.currentUser.id)
+      .subscribe(
+        response => {
+          console.log(response);
+          window.location.reload();
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  exercisesCounterUp(): void {
+    this.userService.exercisesCounterUp(this.currentUser.id)
+      .subscribe(
+        response => {
+          console.log(response);
+          window.location.reload();
+        },
+        error => {
+          console.log(error);
+        });    
+  }
+
+  showBreakfastButton(): boolean {
+    let res = false;
+
+    let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
+    let lcl = Number(this.userService.getLastUpdatedBreakfastDate(this.currentUser.id));
+
+    if(currentDateSum > lcl){
+      res = true;
+    }
+
+    return res;
+  }
+
+  showLunchButton(): boolean {
+    let res = false;
+
+    let currentDateSum = Number(this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear());
+    let lcl = Number(this.userService.getLastUpdatedLunchDate(this.currentUser.id));
+
+    if(currentDateSum > lcl){
+      res = true;
+    }
+
+    return res;
+  }
+
+  showSnackButton(): boolean {
+    let res = false;
+
+    let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
+    let lcl = Number(this.userService.getLastUpdatedSnackDate(this.currentUser.id));
+
+    if(currentDateSum > lcl){
+      res = true;
+    }
+
+    return res;
+  }
+
+  showDinnerButton(): boolean {
+    let res = false;
+
+    let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
+    let lcl = Number(this.userService.getLastUpdatedDinnerhDate(this.currentUser.id));
+
+    if(currentDateSum > lcl){
+      res = true;
+    }
+
+    return res;
+  }
+
+  showExerciseButton(): boolean {
+    let res = false;
+
+    let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
+    let lcl = Number(this.userService.getLastUpdatedExerciseDate(this.currentUser.id));
+
+    if(currentDateSum > lcl){
+      res = true;
+    }
+
+    return res;
+  }
+
 }

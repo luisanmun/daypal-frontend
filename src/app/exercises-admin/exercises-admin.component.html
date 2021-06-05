@@ -1,9 +1,7 @@
-<div class="container">
-  
+<div class="card card-container">
     <p>
       <strong>Todos los ejercicios registrados en el sistema:</strong>
     </p>
-  
     <table class="table table-striped">
         <thead>
             <tr>
@@ -20,10 +18,9 @@
                 <!-- <td>{{exercise.loseWeight}}</td> -->
                 <td  *ngIf="exercise.loseWeight == true"> Indicado para perder peso </td>
                 <td  *ngIf="exercise.loseWeight == false"> Indicado para ganar masa muscular </td>
-                <button type="button" class="btn btn-danger" (click)="deleteExercise(exercise.id)" >Eliminar</button>
+                <button type="button" class="btn btn-danger" *ngIf="exercise.id != 1" (click)="deleteExercise(exercise.id)" >Eliminar</button>
+                <button type="button" class="btn btn-danger" *ngIf="exercise.id == 1" disabled >Eliminar</button>
             </tr>
         </tbody>
     </table>
   </div>
-  
-  

@@ -1,31 +1,32 @@
-<div class="container">
-  
+<div class="card card-container">
   <p>
     <strong>Todas las comidas registradas en el sistema:</strong>
   </p>
-
   <table class="table table-striped">
-      <thead>
-          <tr>
-          <th>Título</th>
-          <th>Descripción</th>
-          <th>Calorias</th>
-          <th>Categoria</th>
-          <th>¿Eliminar comida?</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let meal of meals">
-              <td>{{meal.title}}</td>
-              <td>{{meal.description}}</td>
-              <td>{{meal.calories}}</td>
-              <td *ngIf="meal.category == 'BREAKFAST'">Desayuno</td>
-              <td *ngIf="meal.category == 'LUNCH'">Almuerzo</td>
-              <td *ngIf="meal.category == 'SNACK'">Merienda</td>
-              <td *ngIf="meal.category == 'DINNER'">Cena</td>
-              <button type="button" class="btn btn-danger" (click)="deleteMeal(meal.id)">Eliminar</button>
-          </tr>
-      </tbody>
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Calorias</th>
+        <th>Categoria</th>
+        <th>¿Eliminar comida?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let meal of meals">
+        <td>{{meal.title}}</td>
+        <td>{{meal.description}}</td>
+        <td>{{meal.calories}}</td>
+        <td *ngIf="meal.category == 'BREAKFAST'">Desayuno</td>
+        <td *ngIf="meal.category == 'LUNCH'">Almuerzo</td>
+        <td *ngIf="meal.category == 'SNACK'">Merienda</td>
+        <td *ngIf="meal.category == 'DINNER'">Cena</td>
+        <button type="button" class="btn btn-danger"
+          *ngIf="meal.id != 1 && meal.id != 2 && meal.id != 3 && meal.id != 4"
+          (click)="deleteMeal(meal.id)">Eliminar</button>
+        <button type="button" class="btn btn-danger"
+          *ngIf="meal.id == 1 || meal.id == 2 || meal.id == 3 || meal.id == 4" disabled>Eliminar</button>
+      </tr>
+    </tbody>
   </table>
 </div>
-

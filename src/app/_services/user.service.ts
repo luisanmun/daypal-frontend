@@ -63,4 +63,33 @@ export class UserService {
   exercisesCounterUp(userId: number): Observable<any> {
     return this.http.patch(API_URL + '/user/' + userId + '/exercisesCounter', httpOptions);
   }
+
+  refreshMeal(userId: number): Observable<any> {
+    return this.http.patch(API_URL + '/user/' + userId + '/meals', httpOptions);
+  }
+
+  refreshExercise(userId: number): Observable<any> {
+    return this.http.patch(API_URL + '/user/' + userId + '/exercises', httpOptions);
+  }
+
+  getLastUpdatedBreakfastDate(userId: number): Observable<String> {
+    return this.http.get(API_URL + '/user/' + userId + '/lastUpdatedBreakfastDate', { responseType: 'text' });
+  }
+
+  getLastUpdatedLunchDate(userId: number): Observable<String> {
+    return this.http.get(API_URL + '/user/' + userId + '/lastUpdatedLunchDate', { responseType: 'text' });
+  }
+
+  getLastUpdatedSnackDate(userId: number): Observable<String> {
+    return this.http.get(API_URL + '/user/' + userId + '/lastUpdatedSnackDate', { responseType: 'text' });
+  }
+
+  getLastUpdatedDinnerhDate(userId: number): Observable<String> {
+    return this.http.get(API_URL + '/user/' + userId + '/lastUpdatedDinnerDate', { responseType: 'text' });
+  }
+
+  getLastUpdatedExerciseDate(userId: number): Observable<String> {
+    return this.http.get(API_URL + '/user/' + userId + '/lastUpdatedExerciseDate', { responseType: 'text' });
+  }
+
 }
