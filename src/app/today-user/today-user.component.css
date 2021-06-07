@@ -31,8 +31,5 @@ label {
     border-radius: 50%;
   }
 
-  .example-flex-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+  
+

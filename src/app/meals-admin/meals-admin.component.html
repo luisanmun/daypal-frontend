@@ -5,23 +5,23 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Título</th>
-        <th>Descripción</th>
-        <th>Calorias</th>
-        <th>Categoria</th>
-        <th>¿Eliminar comida?</th>
+        <th style="text-align:center">Título</th>
+        <th style="text-align:center">Descripción</th>
+        <th style="text-align:center">Calorias</th>
+        <th style="text-align:center">Categoria</th>
+        <th style="text-align:center">¿Eliminar?</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let meal of meals">
-        <td>{{meal.title}}</td>
-        <td>{{meal.description}}</td>
-        <td>{{meal.calories}}</td>
-        <td *ngIf="meal.category == 'BREAKFAST'">Desayuno</td>
-        <td *ngIf="meal.category == 'LUNCH'">Almuerzo</td>
-        <td *ngIf="meal.category == 'SNACK'">Merienda</td>
-        <td *ngIf="meal.category == 'DINNER'">Cena</td>
-        <td align="center">
+        <td style="text-align:center">{{meal.title}}</td>
+        <td style="text-align:center">{{meal.description}}</td>
+        <td style="text-align:center">{{meal.calories}}</td>
+        <td style="text-align:center" *ngIf="meal.category == 'BREAKFAST'">Desayuno</td>
+        <td style="text-align:center" *ngIf="meal.category == 'LUNCH'">Almuerzo</td>
+        <td style="text-align:center" *ngIf="meal.category == 'SNACK'">Merienda</td>
+        <td style="text-align:center" *ngIf="meal.category == 'DINNER'">Cena</td>
+        <td style="text-align:center">
         <button type="button" class="btn btn-danger"
           *ngIf="meal.id != 1 && meal.id != 2 && meal.id != 3 && meal.id != 4"
           (click)="deleteMeal(meal.id)">Eliminar</button>

@@ -1,13 +1,15 @@
 <div class="col-md-12" *ngIf="isWeekend() == false">
 
     <div class="card card-container" *ngIf="nowBreakfast() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
-        <div class="example-button-container">
-            <button mat-mini-fab color="secundary" (click)="refreshMeal()">
+
+        <div class="button-container" style="text-align:center">
+            <button mat-mini-fab color="secundary" (click)="refreshMeal()" >
                 <mat-icon>refresh</mat-icon>
             </button>
         </div>
+        
         <p>Es hora del desayuno, la comida más importante del día, hoy toca {{currentMeal.title}}:</p>
         <p>{{currentMeal.description}}</p>
         <p>Que te aportará {{currentMeal.calories}} calorias</p>
@@ -16,27 +18,30 @@
     </div>
 
     <div class="card card-container" *ngIf="nowLunch() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
-        <div class="example-button-container">
-            <button mat-mini-fab color="secundary" (click)="refreshMeal()">
+        <div class="button-container" style="text-align:center">
+            <button mat-mini-fab color="secundary" (click)="refreshMeal()" >
                 <mat-icon>refresh</mat-icon>
             </button>
         </div>
+        <br>
         <p>Es hora de almorzar, hoy toca {{currentMeal.title}}:</p>
         <p>{{currentMeal.description}}</p>
         <p>Que te aportará {{currentMeal.calories}} calorias</p>
 
         <p>{{currentDateSum}}</p>
+        <p>{{luld}}</p>
+        <p>{{lastUpdatedLunchDate}}</p>
         <button type="button" class="btn btn-primary" *ngIf="showLunchButton() == true" (click)="mealsCounterUp()">Confirmar comida</button>
         <button type="button" class="btn btn-primary" *ngIf="showLunchButton() == false" disabled>¡Comida realizada!</button>
     </div>
 
     <div class="card card-container" *ngIf="nowSnack() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
-        <div class="example-button-container">
-            <button mat-mini-fab color="secundary" (click)="refreshMeal()">
+        <div class="button-container" style="text-align:center">
+            <button mat-mini-fab color="secundary" (click)="refreshMeal()" >
                 <mat-icon>refresh</mat-icon>
             </button>
         </div>
@@ -48,10 +53,10 @@
     </div>
 
     <div class="card card-container" *ngIf="nowDinner() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
-        <div class="example-button-container">
-            <button mat-mini-fab color="secundary" (click)="refreshMeal()">
+        <div class="button-container" style="text-align:center">
+            <button mat-mini-fab color="secundary" (click)="refreshMeal()" >
                 <mat-icon>refresh</mat-icon>
             </button>
         </div>
@@ -63,15 +68,15 @@
     </div>
 
     <div class="card card-container" *ngIf="nowWork() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
         <p>¡A trabajar! Vuelve a DayPal en un rato para consultar tu siguiente comida o actividad.</p>
     </div>
     <div class="card card-container" *ngIf="nowExercise() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
-        <div class="example-button-container">
-            <button mat-mini-fab color="secundary" (click)="refreshExercise()">
+        <div class="button-container" style="text-align:center">
+            <button mat-mini-fab color="secundary" (click)="refreshExercise()" >
                 <mat-icon>refresh</mat-icon>
             </button>
         </div>
@@ -82,17 +87,17 @@
     </div>
 
     <div class="card card-container" *ngIf="nowFreeTime() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
         <p>¡Tiempo libre! Haz lo que te plazca. </p>
     </div>
     <div class="card card-container" *ngIf="nowBedTimeRoutine() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
         <p>Es hora de irse preparando para la cama, el momento perfecto para cuidar tu piel y meditar.</p>
     </div>
     <div class="card card-container" *ngIf="nowSleep() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
         <p>¡A dormir!</p>
     </div>
@@ -101,10 +106,10 @@
 <div class="col-md-12" *ngIf="isWeekend() == true">
 
     <div class="card card-container" *ngIf="nowBreakfast() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
-        <div class="example-button-container">
-            <button mat-mini-fab color="secundary" (click)="refreshMeal()">
+        <div class="button-container" style="text-align:center">
+            <button mat-mini-fab color="secundary" (click)="refreshMeal()" >
                 <mat-icon>refresh</mat-icon>
             </button>
         </div>
@@ -115,10 +120,10 @@
         <button type="button" class="btn btn-primary" *ngIf="showBreakfastButton() == false" disabled>¡Comida realizada!</button>        </div>
 
     <div class="card card-container" *ngIf="nowLunch() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
-        <div class="example-button-container">
-            <button mat-mini-fab color="secundary" (click)="refreshMeal()">
+        <div class="button-container" style="text-align:center">
+            <button mat-mini-fab color="secundary" (click)="refreshMeal()" >
                 <mat-icon>refresh</mat-icon>
             </button>
         </div>
@@ -130,10 +135,10 @@
     </div>
 
     <div class="card card-container" *ngIf="nowSnack() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
-        <div class="example-button-container">
-            <button mat-mini-fab color="secundary" (click)="refreshMeal()">
+        <div class="button-container" style="text-align:center">
+            <button mat-mini-fab color="secundary" (click)="refreshMeal()" >
                 <mat-icon>refresh</mat-icon>
             </button>
         </div>
@@ -145,10 +150,10 @@
     </div>
 
     <div class="card card-container" *ngIf="nowDinner() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
-        <div class="example-button-container">
-            <button mat-mini-fab color="secundary" (click)="refreshMeal()">
+        <div class="button-container" style="text-align:center">
+            <button mat-mini-fab color="secundary" (click)="refreshMeal()" >
                 <mat-icon>refresh</mat-icon>
             </button>
         </div>
@@ -160,7 +165,7 @@
     </div>
 
     <div class="card card-container" *ngIf="nowFreeTimeWeekend() == true">
-        <p>Tu puntuación actual es {{currentScore}}.</p>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
         <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
         <p>¡Tiempo libre! Haz lo que te plazca. </p>
     </div>

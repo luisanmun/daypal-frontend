@@ -34,7 +34,8 @@ export class TodayUserComponent implements OnInit {
   currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear(); //devuelve number en minuscula
   //this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
 
-  lastUpdatedLunchDate !: String;
+  luld !: String;
+  lastUpdatedLunchDate !: number;
 
   constructor(private token: TokenStorageService, private userService: UserService) { }
 
@@ -44,6 +45,9 @@ export class TodayUserComponent implements OnInit {
     this.userService.getMealNow(this.currentUser.id).subscribe((data) => this.currentMeal = data);
     this.userService.getExerciseNow(this.currentUser.id).subscribe((data) => this.currentExercise = data);
     this.userService.getScore(this.currentUser.id).subscribe((data) => this.currentScore = data);
+    this.userService.getLastUpdatedLunchDate(this.currentUser.id).subscribe((data) => this.luld = data);
+    this.lastUpdatedLunchDate = Number(this.luld); //obtengo el valor en tipo number
+    
   }
 
   nowBreakfast(): boolean {
@@ -208,21 +212,12 @@ export class TodayUserComponent implements OnInit {
   showLunchButton(): boolean {
     let res = false;
 
-    let luld : String;
-
-    let lastUpdatedLunchD : number;
-
     //this.userService.getLastUpdatedLunchDate(this.currentUser.id); 
-    //por si solo no hace bucle
+    //por si solo no hace bucle, porque sin el suscribe no hace la llmada??
 
-    // let lcl;
-   //this.userService.getLastUpdatedLunchDate(this.currentUser.id).subscribe((data) => this.lastUpdatedLunchDate = data);
-    // lcl = Number(lcl);
-
-    //  if(this.currentDateSum > lastUpdatedLunchDate){
-    //    res = true;
-    //  }
-
+    if(this.currentDateSum > this.lastUpdatedLunchDate){
+        res = true;
+      }
 
     return res;
   }

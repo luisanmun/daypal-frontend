@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatRadioModule } from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,6 +50,7 @@ import { TodayUserComponent } from './today-user/today-user.component';
     HttpClientModule,
     MatRadioModule,
     MatIconModule,
+    MatButtonModule,
     BrowserAnimationsModule,
   ],
   providers: [authInterceptorProviders],

@@ -1,6 +1,6 @@
     <div class="card card-container">
-      <p>
-        <strong>Introducir un nuevo ejercicio al sistema:</strong>
+      <p style="text-align:center">
+        <strong>Introducir un nuevo ejercicio al sistema</strong>
       </p>
       <!-- <img
         id="profile-img"
@@ -15,7 +15,7 @@
         novalidate
       >
         <div class="form-group">
-          <label for="title">Título</label>
+          <label for="title">Título:</label>
           <input
             type="text"
             class="form-control"
@@ -34,7 +34,7 @@
         </div>
         
         <div class="form-group">
-          <label for="description">Descripción</label>
+          <label for="description">Descripción:</label>
           <input
             type="text"
             class="form-control"
@@ -53,10 +53,10 @@
         </div>
 
         <div class="form-group">
-            <label for="loseWeight">Tipo de ejercicio</label>       
+            <label for="loseWeight">Tipo de ejercicio:</label>       
             <mat-radio-group name="opciones" [(ngModel)]="form.loseWeight"  name="loseWeight" required #loseWeight="ngModel">
-                <mat-radio-button value="true">Indicado para perder peso</mat-radio-button>
-                <mat-radio-button value="false">Indicado para ganar masa muscular</mat-radio-button>
+                <mat-radio-button value="true" color="primary">Indicado para perder peso</mat-radio-button>
+                <mat-radio-button value="false" color="primary">Indicado para ganar masa muscular</mat-radio-button>
             </mat-radio-group>
 
           <div class="alert-danger" *ngIf="loseWeight.errors && f.submitted">

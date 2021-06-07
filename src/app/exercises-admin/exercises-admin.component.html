@@ -5,20 +5,19 @@
     <table class="table table-striped">
         <thead>
             <tr>
-            <th>Título</th>
-            <th>Descripción</th>
-            <th>Tipo de ejercicio</th>
-            <th>Eliminar ejercicio</th>
+            <th style="text-align:center">Título</th>
+            <th style="text-align:center">Descripción</th>
+            <th style="text-align:center">Tipo de ejercicio</th>
+            <th style="text-align:center">Eliminar ejercicio</th>
           </tr>
         </thead>
         <tbody>
             <tr *ngFor="let exercise of exercises">
-                <td>{{exercise.title}}</td>
-                <td>{{exercise.description}}</td>
-                <!-- <td>{{exercise.loseWeight}}</td> -->
-                <td  *ngIf="exercise.loseWeight == true"> Indicado para perder peso </td>
-                <td  *ngIf="exercise.loseWeight == false"> Indicado para ganar masa muscular </td>
-                <td align="center">
+                <td style="text-align:center">{{exercise.title}}</td>
+                <td style="text-align:center">{{exercise.description}}</td>
+                <td style="text-align:center" *ngIf="exercise.loseWeight == true"> Indicado para perder peso </td>
+                <td style="text-align:center" *ngIf="exercise.loseWeight == false"> Indicado para ganar masa muscular </td>
+                <td style="text-align:center">
                 <button type="button" class="btn btn-danger" *ngIf="exercise.id != 1" (click)="deleteExercise(exercise.id)" >Eliminar</button>
                 <button type="button" class="btn btn-danger" *ngIf="exercise.id == 1" disabled >Eliminar</button>
                 </td>

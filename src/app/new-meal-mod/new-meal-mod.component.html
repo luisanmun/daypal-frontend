@@ -1,6 +1,6 @@
     <div class="card card-container">
-      <p>
-        <strong>Introducir una nueva comida al sistema:</strong>
+      <p style="text-align:center">
+        <strong>Introducir una nueva comida al sistema</strong>
       </p>
       <!-- <img
         id="profile-img"
@@ -15,7 +15,7 @@
         novalidate
       >
         <div class="form-group">
-          <label for="title">Título</label>
+          <label for="title">Título:</label>
           <input
             type="text"
             class="form-control"
@@ -33,7 +33,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="description">Descripción</label>
+          <label for="description">Descripción:</label>
           <input
             type="text"
             class="form-control"
@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="calories">Calorías</label>
+          <label for="calories">Calorías:</label>
           <input
             type="number"
             class="form-control"
@@ -69,9 +69,9 @@
           <div class="alert-danger" *ngIf="!checkMaxCorrecto(form.calories) && f.submitted">Las calorías deben ser como máximo 5000</div>
         </div>
         <div class="form-group">
-          <label for="category">Tipo de comida</label>       
+          <label for="category">Tipo de comida:</label>       
         <select  class='form-control' [(ngModel)]="form.category" name="category" required #category="ngModel">
-            <option value="">Escoje tipo de comida...</option>
+            <!-- <option value="" selected>Escoje tipo de comida...</option> -->
             <option value="BREAKFAST">Desayuno</option>
             <option value="LUNCH">Almuerzo</option>
             <option value="SNACK">Merienda</option>
