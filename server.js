@@ -11,10 +11,10 @@ const express = require('express');
 const app = express();
 
 app.use(requireHTTPS);
-app.use(express.static('./dist/angular11-jwt-auth'));
+app.use(express.static('./dist/Angular11JwtAuth'));
 
 app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'dist/angular11-jwt-auth/'}),
+    res.sendFile('index.html', {root: 'dist/Angular11JwtAuth/'}),
 );
 
 app.listen(process.env.PORT || 8080);
