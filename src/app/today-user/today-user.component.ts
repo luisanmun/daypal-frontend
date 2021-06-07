@@ -46,7 +46,7 @@ export class TodayUserComponent implements OnInit {
     this.userService.getExerciseNow(this.currentUser.id).subscribe((data) => this.currentExercise = data);
     this.userService.getScore(this.currentUser.id).subscribe((data) => this.currentScore = data);
     this.userService.getLastUpdatedLunchDate(this.currentUser.id).subscribe((data) => this.luld = data);
-    this.lastUpdatedLunchDate = Number(this.luld); //obtengo el valor en tipo number
+    this.lastUpdatedLunchDate = +this.luld; //obtengo el valor en tipo number
     
   }
 

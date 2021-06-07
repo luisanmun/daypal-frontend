@@ -2,7 +2,7 @@
 
     <div class="card card-container" *ngIf="nowBreakfast() == true">
         <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
-        <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
+        <img id="meal-img" src="assets/meal.png" class="profile-img-card" />
 
         <div class="button-container" style="text-align:center">
             <button mat-mini-fab color="secundary" (click)="refreshMeal()" >
@@ -69,7 +69,7 @@
 
     <div class="card card-container" *ngIf="nowWork() == true">
         <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}.</h5>
-        <img id="meal-img" src="/src/assets/meal.png" class="profile-img-card" />
+        <img id="meal-img" src="assets/meal.png" class="profile-img-card" />
         <p>¡A trabajar! Vuelve a DayPal en un rato para consultar tu siguiente comida o actividad.</p>
     </div>
     <div class="card card-container" *ngIf="nowExercise() == true">
