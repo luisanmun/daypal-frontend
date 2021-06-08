@@ -18,8 +18,10 @@
                 <!-- <td>{{exercise.loseWeight}}</td> -->
                 <td  *ngIf="exercise.loseWeight == true"> Indicado para perder peso </td>
                 <td  *ngIf="exercise.loseWeight == false"> Indicado para ganar masa muscular </td>
+                <td align="center">
                 <button type="button" class="btn btn-danger" *ngIf="exercise.id != 1" (click)="deleteExercise(exercise.id)" >Eliminar</button>
                 <button type="button" class="btn btn-danger" *ngIf="exercise.id == 1" disabled >Eliminar</button>
+                </td>
             </tr>
         </tbody>
     </table>

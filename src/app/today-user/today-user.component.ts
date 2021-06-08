@@ -31,6 +31,11 @@ export class TodayUserComponent implements OnInit {
 
   currentScore: any;
 
+  currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear(); //devuelve number en minuscula
+  //this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
+
+  lastUpdatedLunchDate !: String;
+
   constructor(private token: TokenStorageService, private userService: UserService) { }
 
   ngOnInit(): void {
@@ -188,12 +193,14 @@ export class TodayUserComponent implements OnInit {
   showBreakfastButton(): boolean {
     let res = false;
 
-    let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
-    let lcl = Number(this.userService.getLastUpdatedBreakfastDate(this.currentUser.id));
+    // let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
+    // let lcb;
+    // this.userService.getLastUpdatedBreakfastDate(this.currentUser.id).subscribe((data) => lcb = data);
+    // lcb = Number(lcb);
 
-    if(currentDateSum > lcl){
-      res = true;
-    }
+    // if(currentDateSum > lcb){
+    //   res = true;
+    // }
 
     return res;
   }
@@ -201,12 +208,21 @@ export class TodayUserComponent implements OnInit {
   showLunchButton(): boolean {
     let res = false;
 
-    let currentDateSum = Number(this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear());
-    let lcl = Number(this.userService.getLastUpdatedLunchDate(this.currentUser.id));
+    let luld : String;
 
-    if(currentDateSum > lcl){
-      res = true;
-    }
+    let lastUpdatedLunchD : number;
+
+    //this.userService.getLastUpdatedLunchDate(this.currentUser.id); 
+    //por si solo no hace bucle
+
+    // let lcl;
+   //this.userService.getLastUpdatedLunchDate(this.currentUser.id).subscribe((data) => this.lastUpdatedLunchDate = data);
+    // lcl = Number(lcl);
+
+    //  if(this.currentDateSum > lastUpdatedLunchDate){
+    //    res = true;
+    //  }
+
 
     return res;
   }
@@ -214,12 +230,12 @@ export class TodayUserComponent implements OnInit {
   showSnackButton(): boolean {
     let res = false;
 
-    let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
-    let lcl = Number(this.userService.getLastUpdatedSnackDate(this.currentUser.id));
+    // let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
+    // let lcl = Number(this.userService.getLastUpdatedSnackDate(this.currentUser.id));
 
-    if(currentDateSum > lcl){
-      res = true;
-    }
+    // if(currentDateSum > lcl){
+    //   res = true;
+    // }
 
     return res;
   }
@@ -227,12 +243,12 @@ export class TodayUserComponent implements OnInit {
   showDinnerButton(): boolean {
     let res = false;
 
-    let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
-    let lcl = Number(this.userService.getLastUpdatedDinnerhDate(this.currentUser.id));
+    // let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
+    // let lcl = Number(this.userService.getLastUpdatedDinnerhDate(this.currentUser.id));
 
-    if(currentDateSum > lcl){
-      res = true;
-    }
+    // if(currentDateSum > lcl){
+    //   res = true;
+    // }
 
     return res;
   }
@@ -240,12 +256,12 @@ export class TodayUserComponent implements OnInit {
   showExerciseButton(): boolean {
     let res = false;
 
-    let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
-    let lcl = Number(this.userService.getLastUpdatedExerciseDate(this.currentUser.id));
+    // let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
+    // let lcl = Number(this.userService.getLastUpdatedExerciseDate(this.currentUser.id));
 
-    if(currentDateSum > lcl){
-      res = true;
-    }
+    // if(currentDateSum > lcl){
+    //   res = true;
+    // }
 
     return res;
   }

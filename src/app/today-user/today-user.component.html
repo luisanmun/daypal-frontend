@@ -26,6 +26,8 @@
         <p>Es hora de almorzar, hoy toca {{currentMeal.title}}:</p>
         <p>{{currentMeal.description}}</p>
         <p>Que te aportará {{currentMeal.calories}} calorias</p>
+
+        <p>{{currentDateSum}}</p>
         <button type="button" class="btn btn-primary" *ngIf="showLunchButton() == true" (click)="mealsCounterUp()">Confirmar comida</button>
         <button type="button" class="btn btn-primary" *ngIf="showLunchButton() == false" disabled>¡Comida realizada!</button>
     </div>

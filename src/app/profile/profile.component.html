@@ -1,10 +1,19 @@
-<div class="container" *ngIf="currentUser; else loggedOut">
-  <header class="jumbotron">
+<div class="card card-container" *ngIf="currentUser; else loggedOut">
     <h3>
       <strong>Bienvenido {{currentUser.username}}!</strong>
     </h3>
-  </header>
-  <p>
+
+    <br>
+
+    <img
+    id="profile-img"
+    src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+    class="profile-img-card"
+  />
+  
+  <br>
+
+    <p>
     <strong>Tu email:</strong>
     {{ currentUser.email }}
   </p>

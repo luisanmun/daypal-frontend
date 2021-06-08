@@ -21,11 +21,13 @@
         <td *ngIf="meal.category == 'LUNCH'">Almuerzo</td>
         <td *ngIf="meal.category == 'SNACK'">Merienda</td>
         <td *ngIf="meal.category == 'DINNER'">Cena</td>
+        <td align="center">
         <button type="button" class="btn btn-danger"
           *ngIf="meal.id != 1 && meal.id != 2 && meal.id != 3 && meal.id != 4"
           (click)="deleteMeal(meal.id)">Eliminar</button>
         <button type="button" class="btn btn-danger"
           *ngIf="meal.id == 1 || meal.id == 2 || meal.id == 3 || meal.id == 4" disabled>Eliminar</button>
+        </td>
       </tr>
     </tbody>
   </table>
