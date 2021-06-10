@@ -31,11 +31,17 @@ export class TodayUserComponent implements OnInit {
 
   currentScore: any;
 
-  currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear(); //devuelve number en minuscula
+  canConfirmMeal: any;
+
+  canConfirmExercise: any;
+
+
+
+  //currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear(); //devuelve number en minuscula
   //this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
 
-  luld !: String;
-  lastUpdatedLunchDate !: number;
+  //luld !: String;
+  //lastUpdatedLunchDate !: number;
 
   constructor(private token: TokenStorageService, private userService: UserService) { }
 
@@ -45,8 +51,13 @@ export class TodayUserComponent implements OnInit {
     this.userService.getMealNow(this.currentUser.id).subscribe((data) => this.currentMeal = data);
     this.userService.getExerciseNow(this.currentUser.id).subscribe((data) => this.currentExercise = data);
     this.userService.getScore(this.currentUser.id).subscribe((data) => this.currentScore = data);
-    this.userService.getLastUpdatedLunchDate(this.currentUser.id).subscribe((data) => this.luld = data);
-    this.lastUpdatedLunchDate = +this.luld; //obtengo el valor en tipo number
+    this.userService.getCanConfirmMeal(this.currentUser.id).subscribe((data) => this.canConfirmMeal = data);
+    this.userService.getCanConfirmExercise(this.currentUser.id).subscribe((data) => this.canConfirmExercise = data);
+
+
+
+    // this.userService.getLastUpdatedLunchDate(this.currentUser.id).subscribe((data) => this.luld = data);
+    // this.lastUpdatedLunchDate = +this.luld; //obtengo el valor en tipo number
     
   }
 
@@ -100,7 +111,7 @@ export class TodayUserComponent implements OnInit {
 
   nowBedTimeRoutine(): boolean {
     var res = false;
-    if ((this.hora == 0 && this.min == 0) && (this.hora < 1)) {
+    if (this.hora == 23 || this.hora == 0) {
       res = true;
     }
     return res;
@@ -124,7 +135,7 @@ export class TodayUserComponent implements OnInit {
 
   nowFreeTimeWeekend(): boolean {
     var res = false;
-    if ((this.hora >= 11 && this.hora < 14) || (this.hora >= 15 && this.hora < 18) || (this.hora >= 19 && this.hora < 22) || (this.hora >= 23 && this.hora < 2)) {
+    if ((this.hora >= 11 && this.hora < 14) || (this.hora >= 15 && this.hora < 18) || (this.hora >= 19 && this.hora < 22) || this.hora == 23 || this.hora == 0 || this.hora == 1) {
       res = true;
     }
     return res;
@@ -194,71 +205,96 @@ export class TodayUserComponent implements OnInit {
         });    
   }
 
-  showBreakfastButton(): boolean {
+  showMealButton(): boolean {
     let res = false;
 
-    // let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
-    // let lcb;
-    // this.userService.getLastUpdatedBreakfastDate(this.currentUser.id).subscribe((data) => lcb = data);
-    // lcb = Number(lcb);
+     if(this.canConfirmMeal == "true"){
+       res = true;
+     }
 
-    // if(currentDateSum > lcb){
-    //   res = true;
-    // }
-
-    return res;
-  }
-
-  showLunchButton(): boolean {
-    let res = false;
-
-    //this.userService.getLastUpdatedLunchDate(this.currentUser.id); 
-    //por si solo no hace bucle, porque sin el suscribe no hace la llmada??
-
-    if(this.currentDateSum > this.lastUpdatedLunchDate){
-        res = true;
-      }
-
-    return res;
-  }
-
-  showSnackButton(): boolean {
-    let res = false;
-
-    // let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
-    // let lcl = Number(this.userService.getLastUpdatedSnackDate(this.currentUser.id));
-
-    // if(currentDateSum > lcl){
-    //   res = true;
-    // }
-
-    return res;
-  }
-
-  showDinnerButton(): boolean {
-    let res = false;
-
-    // let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
-    // let lcl = Number(this.userService.getLastUpdatedDinnerhDate(this.currentUser.id));
-
-    // if(currentDateSum > lcl){
-    //   res = true;
-    // }
-
-    return res;
+     return res;
   }
 
   showExerciseButton(): boolean {
     let res = false;
 
-    // let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
-    // let lcl = Number(this.userService.getLastUpdatedExerciseDate(this.currentUser.id));
+     if(this.canConfirmExercise == "true"){
+       res = true;
+     }
 
-    // if(currentDateSum > lcl){
-    //   res = true;
-    // }
-
-    return res;
+     return res;
   }
+
+
+
+
+  
+
+  // showBreakfastButton(): boolean {
+  //   let res = false;
+
+  //   // let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
+  //   // let lcb;
+  //   // this.userService.getLastUpdatedBreakfastDate(this.currentUser.id).subscribe((data) => lcb = data);
+  //   // lcb = Number(lcb);
+
+  //   // if(currentDateSum > lcb){
+  //   //   res = true;
+  //   // }
+
+  //   return res;
+  // }
+
+  // showLunchButton(): boolean {
+  //   let res = false;
+
+  //   //this.userService.getLastUpdatedLunchDate(this.currentUser.id); 
+  //   //por si solo no hace bucle, porque sin el suscribe no hace la llmada??
+
+  //   if(this.currentDateSum > this.lastUpdatedLunchDate){
+  //       res = true;
+  //     }
+
+  //   return res;
+  // }
+
+  // showSnackButton(): boolean {
+  //   let res = false;
+
+  //   // let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
+  //   // let lcl = Number(this.userService.getLastUpdatedSnackDate(this.currentUser.id));
+
+  //   // if(currentDateSum > lcl){
+  //   //   res = true;
+  //   // }
+
+  //   return res;
+  // }
+
+  // showDinnerButton(): boolean {
+  //   let res = false;
+
+  //   // let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
+  //   // let lcl = Number(this.userService.getLastUpdatedDinnerhDate(this.currentUser.id));
+
+  //   // if(currentDateSum > lcl){
+  //   //   res = true;
+  //   // }
+
+  //   return res;
+  // }
+
+  // showExerciseButton(): boolean {
+  //   let res = false;
+
+  //   // let currentDateSum = this.currentDate.getDay() + this.currentDate.getMonth() + this.currentDate.getFullYear();
+  //   // let lcl = Number(this.userService.getLastUpdatedExerciseDate(this.currentUser.id));
+
+  //   // if(currentDateSum > lcl){
+  //   //   res = true;
+  //   // }
+
+  //   return res;
+  // }
 
 }

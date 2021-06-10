@@ -1,10 +1,5 @@
 <div class="col-md-12">
     <div class="card card-container">
-      <!-- <img
-        id="profile-img"
-        src="../../assets/up-arrow.png"
-        class="profile-img-card"
-      /> -->
       <form
         *ngIf="!isSuccessful"
         name="form"
@@ -17,6 +12,9 @@
           <p style="text-align:center">
             <strong>Introduce tu nuevo peso</strong>
           </p>
+          <br>
+        <img id="meal-img" src="assets/weight.png" class="profile-img-card" />
+        <p class="half-line">&nbsp;</p>
           <input
             type="number"
             class="form-control"
@@ -34,19 +32,24 @@
           <div class="alert-danger" *ngIf="!checkMaxCorrecto(form.weight) && f.submitted">El peso debe ser como máximo 300 kgs</div>
         </div>
         
-        <div class="form-group">
-          <button class="btn btn-primary btn-block">Guardar</button>
-        </div>
+        
+          <!-- <button class="btn btn-primary btn-block">Guardar</button> -->
+          <!-- <button mat-raised-button color="primary" >Guardar</button> -->
+        
   
         <!-- <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
           Fallo en la introducción del peso<br />{{ errorMessage }}
         </div> -->
       </form>
+      <button mat-raised-button color="primary" *ngIf="!isSuccessful">Guardar</button>
   
-      <div class="alert alert-success" *ngIf="isSuccessful">
+      <div class="alert alert-success" *ngIf="isSuccessful" style="text-align:center">
         Peso correctamente actualizado
-        <button type="button" class="btn btn-danger" (click)="volver()">Volver</button>
       </div>
+      <!-- <div *ngIf="isSuccessful"> si pongo el divisor se me pone el boton corto, sin divisor todo el ancho-->
+        <!-- <button type="button" class="btn btn-danger" (click)="volver()">Volver</button> -->
+        <button mat-raised-button color="warn" (click)="volver()" *ngIf="isSuccessful">Volver</button>
+      <!-- </div> -->
     </div>
   </div>
   
