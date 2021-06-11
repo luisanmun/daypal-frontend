@@ -2,11 +2,9 @@
       <p style="text-align:center">
         <strong>Introducir una nueva comida al sistema</strong>
       </p>
-      <!-- <img
-        id="profile-img"
-        src="../../assets/up-arrow.png"
-        class="profile-img-card"
-      /> -->
+      <p class="half-line">&nbsp;</p>
+
+      <img src="assets/newMeal.png" class="profile-img-card" />
       <form
         *ngIf="!isSuccessful"
         name="form"
@@ -71,7 +69,7 @@
         <div class="form-group">
           <label for="category">Tipo de comida:</label>       
         <select  class='form-control' [(ngModel)]="form.category" name="category" required #category="ngModel">
-            <!-- <option value="" selected>Escoje tipo de comida...</option> -->
+            <option value="" selected>Escoje tipo de comida...</option>
             <option value="BREAKFAST">Desayuno</option>
             <option value="LUNCH">Almuerzo</option>
             <option value="SNACK">Merienda</option>
@@ -81,8 +79,9 @@
             <div *ngIf="category.errors.required">Debe introducir la categoría de la comida</div>
           </div>
         </div>
+        <p class="half-line">&nbsp;</p>
         <div class="form-group">
-          <button class="btn btn-primary btn-block">Guardar</button>
+          <button mat-raised-button color="primary" style="width : 100%;">Guardar</button> 
         </div>
   
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
@@ -90,8 +89,9 @@
         </div>
       </form>
   
-      <div class="alert alert-success" *ngIf="isSuccessful">
+      <p class="half-line">&nbsp;</p>
+      <div class="alert alert-success" *ngIf="isSuccessful" style="text-align:center">
         Comida correctamente introducida
-        <button type="button" class="btn btn-danger" (click)="volver()">Volver</button>
       </div>
+      <button mat-raised-button color="warn" (click)="volver()" *ngIf="isSuccessful">Volver</button>
     </div>

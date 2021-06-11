@@ -27,3 +27,7 @@ label {
     margin: 0 auto 10px;
     display: block;
   }
+
+  .half-line {
+    line-height: .01em;
+  }

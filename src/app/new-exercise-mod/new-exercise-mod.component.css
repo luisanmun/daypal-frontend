@@ -4,8 +4,8 @@ label {
   }
   
   .card-container.card {
-    max-width: 800px !important;
-    padding: 40px 40px;
+    max-width: 400px !important;
+    padding: 20px 40px;
   }
   
   .card {
@@ -22,5 +22,16 @@ label {
   }
 
   .mat-radio-button ~ .mat-radio-button {
-    margin-left: 16px;
+    margin-left: 0px;
+  }
+  
+  .profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+  }
+
+  .half-line {
+    line-height: .01em;
   }
