@@ -1,7 +1,7 @@
 <div class="col-md-12" *ngIf="isWeekend() == false">
 
     <div class="card card-container" *ngIf="nowBreakfast() == true">
-        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}</h5>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}/100</h5>
         <br>
         <img id="meal-img" src="assets/meal.png" class="profile-img-card" />
         <p class="half-line">&nbsp;</p>
@@ -224,7 +224,7 @@
     </div>
 
     <div class="card card-container" *ngIf="nowFreeTimeWeekend() == true">
-        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}</h5>
+        <h5 style="text-align:center">Tu puntuación actual es {{currentScore}}/100</h5>
         <br>
         <img id="meal-img" src="assets/freeTimeWeekend.png" class="profile-img-card" />
         <p class="half-line">&nbsp;</p>
