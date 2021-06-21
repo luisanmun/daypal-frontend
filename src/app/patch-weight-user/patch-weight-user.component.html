@@ -40,8 +40,9 @@
         <!-- <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
           Fallo en la introducción del peso<br />{{ errorMessage }}
         </div> -->
+        <button mat-raised-button color="primary" style="width : 100%;" *ngIf="!isSuccessful">Guardar</button>
       </form>
-      <button mat-raised-button color="primary" *ngIf="!isSuccessful">Guardar</button>
+      
   
       <div class="alert alert-success" *ngIf="isSuccessful" style="text-align:center">
         Peso correctamente actualizado
